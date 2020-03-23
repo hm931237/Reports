@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Reports.Models.AspNetUser>
+
+@{
+    ViewBag.Title = "Users List";
+}
+
+<h2>UsersList</h2>
+@Html.ActionLink("Export To Excel", "Reports",new {ReportType="Excel" }) |
+@Html.ActionLink("Export To PDF", "Reports", new { ReportType = "PDF" }) |
+@Html.ActionLink("Export To Word", "Reports", new { ReportType = "Word" }) |
+@Html.ActionLink("Export To Image", "Reports", new { ReportType = "Image" }) |
+<br /><br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpireDate)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpireDate)
+        </td>
+        
+        
+    </tr>
+}
+
+</table>
