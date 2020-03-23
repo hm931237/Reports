@@ -73,6 +73,11 @@ namespace Reports.Controllers
                                           GroupName=t.Name
                                       }).ToList();
             localReport.DataSources.Add(reportDataSource);
+            //ReportParameter[] rptParameters = new ReportParameter[0];
+            List<ReportParameter> parameters = new List<ReportParameter>();
+            parameters.Add(new ReportParameter("Name", "Hesham"));
+            localReport.SetParameters(parameters);
+            //rptParameters=ReportParameter
             string reportType = "PDF";
             string mimeType;
             string encoding;
